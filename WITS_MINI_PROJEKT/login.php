@@ -26,14 +26,13 @@
 
           if (isset($_POST['user'])){ // hvis et username er angivet
             if(login($_POST['user'], $_POST['password'])){ // OG hvis log ind er vellykket
-              $_SESSION['username'] = $_POST['user']; // gem det uid en bruger har indtastet i en sessionsvariable
+              $_SESSION['username'] = htmlentities($_POST['user']); // gem det uid en bruger har indtastet i en sessionsvariable
               $_SESSION['loggedIn'] = true; // opdaterer sessionsvariable til at en bruger er logget ind
               header("Location: menu.php"); // send brugeren videre til menuen
             } else {
               echo "<p>No user found, try again or create an new user.</p>"; // Fejlmeddelse om brugeren ikke findes
             }
-          }
-          ?>
+          }?>
 
           <form action="login.php" method="POST"> <!-- Login knap -->
             <p><input type="text" name="user" placeholder=Username></p>

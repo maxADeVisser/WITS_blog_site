@@ -7,7 +7,6 @@ Hvis begge er specificeret, prioriteres pid-->
   session_start();
 
   $blogID = $_GET['blog_ID']; // fetch
-
   $usersID = $_GET['users_ID'];
 
   if(!empty($blogID)){
