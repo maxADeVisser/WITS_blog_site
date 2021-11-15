@@ -49,7 +49,7 @@
             foreach ($postIDs_of_user as $postID){
               $post_ID = get_post($postID)['pid'];
               $post_title = htmlentities(get_post($post_ID)['title']);
-              echo "<p><a href='verifyInput.php?blog_ID=$post_ID'> $post_title</a></p>"; //laver links der fører brugeren videre til verifyInput
+              echo "<p><a href='getBlog.php?blog_ID=$post_ID'> $post_title</a></p>"; //laver links der fører brugeren videre til verifyInput
             }
           } else { //hvis en bruger ikke har nogen posts
             echo "User has no posts";

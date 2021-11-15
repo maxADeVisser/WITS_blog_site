@@ -12,13 +12,13 @@
   </head>
 
   <body>
-    <div class="container"> <!-- er nødvendigt for at kunne bruge Bootstrap, og alt indhold skal være i containeren -->
+    <div class="container"> <!-- er nødvendigt for at kunne bruge Bootstraps standard grid system, og alt indhold skal være i containeren -->
       <div class="row"> <!-- opretter et row -->
         <div class="col-1"></div> <!-- Oprettes en tom 1/12 grid, for at gøre plads til 1/12 logout grid -->
 
         <div class="col-10">
         <h1 class="text-lg-center">Main Menu</h1>
-        </div>
+      </div>
 
         <div class="col-1"> <!-- Displayer login/logout knap oppe i højre hjørne -->
         <?php
@@ -38,7 +38,7 @@
       <div class="row justify-content-center">
         <div class="col-2"></div> <!-- for at det hele bliver rykket mere til højre -->
         <div class="col-2">
-          <form action="verifyInput.php" method="GET">
+          <form action="getBlog.php" method="GET">
             <p><input class="form-control" type="text" name="blog_ID" placeholder="Post"></p>
         </div>
 
