@@ -2,15 +2,16 @@
   require_once "/home/mir/lib/db.php";
   session_start();
 
+  //hvis der er oprettet en bruger nede i formen, tilføjes brugeren til databasen, og sessionsvariabler opdateres.
   if(isset($_POST['username']) && isset($_POST['firstname']) && isset($_POST['lastname']) && isset($_POST['password'])){
     add_user($_POST['username'], $_POST['firstname'], $_POST['lastname'], $_POST['password']);
     if(login($_POST['username'], $_POST['password']) == true){
       $_SESSION['username'] = $_POST['username'];
       $_SESSION['loggedIn'] = true;
-      header("Location: menu.php");
+      header("Location: menu.php"); // send brugeren til menuen
     }
   }
- ?>
+?>
 
 <!DOCTYPE html>
 <html>
@@ -22,10 +23,12 @@
   <body>
     <div class="container">
       <div class="row">
+
         <div class="col text-center">
           <h1>Create new user</h1>
           <div class="col-md-2 offset-5">
             <p><h5>Fill out all fields</h5></p>
+            <!-- form for adding a user -->
             <p><form action="addUser.php" method="POST">
               <p><input class="form-control" type="text" placeholder="Username" name="username"></p>
               <p><input class="form-control" type="text" placeholder="First name" name="firstname"></p>

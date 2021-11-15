@@ -38,7 +38,8 @@
       <div class="row justify-content-center">
         <div class="col-2"></div> <!-- for at det hele bliver rykket mere til højre -->
         <div class="col-2">
-          <form action="getBlog.php" method="GET">
+          <!-- form -->
+          <form action="verifyInput.php" method="GET">
             <p><input class="form-control" type="text" name="blog_ID" placeholder="Post"></p>
         </div>
 
@@ -48,16 +49,19 @@
                 <?php
                   $user_list = get_uids(); //returnerer et array af uids
                   foreach ($user_list as $userID){ // vi fetcher alle uid's og smider dem i en dropdown menu
+                    $userID = htmlentities($userID);
                     echo "<option value='$userID'> $userID </option>";
                   }?>
             </select></p>
           </div>
+
+          <!-- display go knap -->
           <div class="col-2">
             <input class="btn btn-primary" type="submit" value="Go"> <!-- submit knap til form -->
           </div>
         </form>
 
-      </div> <!-- Lukke tag til row -->
+      </div> <!-- Lukke tag til row justfi-content-center -->
 
       <div class="row">
         <div class="col text-center">
@@ -67,8 +71,8 @@
         </div>
       </div>
 
+      <!-- displayer en "See my posts"-knap hvis man er logget ind -->
       <?php
-        //displayer en "See my posts"-knap hvis man er logget ind
         if($_SESSION['loggedIn']){ ?>
           <form action="getUser.php?user_ID=<?php echo $_SESSION['username']?>" method="post"> <!-- eksikverer getUser.php med username-sessionsvariablen -->
             <div class="row">
@@ -79,7 +83,7 @@
           </form>
       <?php } ?>
 
-
+      <!-- display create new post knap -->
       <div class="row">
         <div class="col text-center">
           <form action="createPost.php" method="GET">
